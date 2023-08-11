@@ -100,7 +100,7 @@ const ProfileSchema = new mongoose.Schema({
     twitter: {
       type: String,
     },
-    linkdin: {
+    linkedin: {
       type: String,
     },
   },
