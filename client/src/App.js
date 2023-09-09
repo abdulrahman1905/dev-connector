@@ -18,6 +18,11 @@ import { loadUser } from './actions/auth'
 import './App.css'
 import AddExperience from './components/profile-forms/AddExperience'
 import AddEducation from './components/profile-forms/AddEducation'
+import Profiles from './components/profiles/Profiles'
+import Profile from './components/profile/Profile'
+
+import Posts from './components/posts/Posts'
+import Post from './components/post/Post'
 
 if (localStorage.token) {
   setAuthToken(localStorage.token)
@@ -38,6 +43,8 @@ const App = () => {
             <Route path='/' element={<Landing />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/profiles' element={<Profiles />} />
+            <Route path='/profile/:id' element={<Profile />} />
             <Route
               path='/dashboard'
               element={
@@ -75,6 +82,22 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <AddEducation />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='/posts'
+              element={
+                <PrivateRoute>
+                  <Posts />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path='/posts/:id'
+              element={
+                <PrivateRoute>
+                  <Post />
                 </PrivateRoute>
               }
             />
